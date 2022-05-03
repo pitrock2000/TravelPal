@@ -7,7 +7,7 @@ Monitor Travel Info and edit user speedcams with alerts even without Navi SDcard
 
 Features: GENERAL: Turn on/off Travel InfoPanel with a push of a (Media) button. Multi-language and EU/US Units support.
   INFO: travel distance and time, average driving speed and fuel economy, rotating compass, user reset, 90min-off auto-reset,
-  speed-limit sign on Media screen (need Navi SDcard), audio source and title displayed on Navi screen,
+  speed-limit sign on Media screen (need Navi SDcard), audio source and title displayed on Navi screen.
   SPEEDCAM: user speedcam add/remove (no need for Navi SDcard), user speedcam alert with distance shown.
 
 App does not modify any original JS files nor uses any original JS functions
@@ -18,11 +18,13 @@ Thanks to those who worked on original versions of tweaks.
 Note: install and use this App at your own risk and please focus on driving.
 
 How to install.
+
 Option 1. SSH access - copy install.sh file and config folder to any place in Mzd system. Add exec rights and run.
 Option 2. Pendrive access - copy install.sh file and config folder to empty 8-16 GB pendrive. In addition copy files from pendrv folder to pendrive. Insert pendrive and wait.
 For both options installation process will be presented on the screen in several steps. Additionally tpinstall.log file will be created on source folder.
 
 User's guide.
+
 App starts to run in the background when the car is opened.
 To turn on and off (toggle) InfoPanel with Travel data press Media button once when in Media screen and Navi button when in Navi screen.
 To reset Travel data when in Media screen press and hold Media button for about a second until zeros appear. 
