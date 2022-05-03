@@ -10,10 +10,10 @@ Features: GENERAL: Turn on/off Travel InfoPanel with a push of a (Media) button.
   speed-limit sign on Media screen (need Navi SDcard), audio source and title displayed on Navi screen.
   SPEEDCAM: user speedcam add/remove (no need for Navi SDcard), user speedcam alert with distance shown.
 
-App does not modify any original JS files nor uses any original JS functions
-It is written in pure JS and uses websocketd server to transfer data from and to car (r/w travel data and speedcams)
-App should work with Infotainment FW versions between 56.00.100 - 59.00.500
-Other FW versions not tested, so shoukd be used with care.
+App does not modify any original JS files nor uses any original JS functions.
+It is written in pure JS and uses websocketd server to transfer data from and to car (r/w travel data and speedcams).
+App should work with Infotainment FW versions between 56.00.100 - 59.00.500.
+Other FW versions not tested, so should be used with care.
 Thanks to those who worked on original versions of tweaks.
 Note: install and use this App at your own risk and please focus on driving.
 
