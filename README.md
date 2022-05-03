@@ -21,7 +21,7 @@ How to install.
 
 Option 1. SSH access - copy install.sh file and config folder to any place in Mzd system. Add exec rights and run.
 Option 2. Pendrive access - copy install.sh file and config folder to empty 8-16 GB pendrive. In addition copy files from pendrv folder to pendrive. Insert pendrive and wait.
-For both options installation process will be presented on the screen in several steps. Additionally tpinstall.log file will be created on source folder.
+For both options installation process is presented on the screen in several steps. Additionally tpinstall.log file is created on source folder.
 
 User's guide.
 
