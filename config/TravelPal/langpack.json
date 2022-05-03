@@ -1,0 +1,63 @@
+{
+  "2057" : {
+    "totDist"   : "DIST",
+    "totTime"   : "TIME",
+    "drvSpeed"  : "SPEED",
+    "drvFuel"   : "FUEL",
+    "spdcDist"  : "DIST",
+    "msgCode1"  : "InfoPanel toggle",
+    "msgCode2"  : "Speedcam add | remove",
+    "msgCode3"  : "Speedcam added",
+    "msgCode4"  : "Speedcam removed",
+    "msgCode5"  : "Please wait",
+    "msgCode9"  : "Cannot edit",
+    "msgCode11" : "- TravelPal - \n Please focus on driving",
+    "msgCode55" : "Language file error \n Using defaults"
+  },
+  "1045" : {
+    "totDist"   : "TRASA",
+    "totTime"   : "CZAS",
+    "drvSpeed"  : "PREDK",
+    "drvFuel"   : "SPAL",
+    "spdcDist"  : "ODL",
+    "msgCode1"  : "InfoPanel przełącz",
+    "msgCode2"  : "Fotoradar dodaj | usuń",
+    "msgCode3"  : "Fotoradar dodany",
+    "msgCode4"  : "Fotoradar usunięty",
+    "msgCode5"  : "Proszę czekać",
+    "msgCode9"  : "Nie można edytować",
+    "msgCode11" : "- TravelPal - \n Proszę się skupić na prowadzeniu",
+    "msgCode55" : "Błąd pliku językowego \n Używam domyślnego"
+  },
+  "1033" : {
+    "totDist"   : "DIST",
+    "totTime"   : "TIME",
+    "drvSpeed"  : "SPEED",
+    "drvFuel"   : "FUEL",
+    "spdcDist"  : "DIST",
+    "msgCode1"  : "InfoPanel toggle",
+    "msgCode2"  : "Speedcam add | remove",
+    "msgCode3"  : "Speedcam added",
+    "msgCode4"  : "Speedcam removed",
+    "msgCode5"  : "Please wait",
+    "msgCode9"  : "Cannot edit",
+    "msgCode11" : "- TravelPal - \n Please focus on driving",
+    "msgCode55" : "Language file error \n Using defaults"
+  },
+  "yourlangcode" : {
+    "leaveThisColumn" : "yourtranslation",
+    "totDist"   : "DIST",
+    "totTime"   : "TIME",
+    "drvSpeed"  : "SPEED",
+    "drvFuel"   : "FUEL",
+    "spdcDist"  : "DIST",
+    "msgCode1"  : "InfoPanel toggle",
+    "msgCode2"  : "Speedcam add | remove",
+    "msgCode3"  : "Speedcam added",
+    "msgCode4"  : "Speedcam removed",
+    "msgCode5"  : "Please wait",
+    "msgCode9"  : "Cannot edit",
+    "msgCode11" : "- TravelPal - \n Please focus on driving",
+    "msgCode55" : "Language file error \n Using defaults"
+  }
+}
