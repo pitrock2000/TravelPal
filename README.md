@@ -32,6 +32,11 @@ To edit User Speed camera when in Media screen press Media button twice and use 
 Speedcams can be added and then removed from the list, but built-in cameras cannot be removed unless built-in Navi app is patched.
 Speed cameras added to the list are displayed on Media screen when approached as icon with optional distance if detected within certain range.
 
+How to uninstall.
+Option 1. SSH access - copy uninstall.sh file to any place in Mzd system. Add exec rights and run.
+Option 2. Pendrive access - copy uninstall.sh file to empty 8-16 GB pendrive. In addition copy files from pendrv folder to pendrive AND modify last line of .txt file accordingly. Insert pendrive and wait.
+For both options installation process is presented on the screen in a few steps. No log is created.
+
 Please write to me in case of issues or questions.
 
 Have fun!
