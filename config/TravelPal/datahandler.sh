@@ -3,16 +3,6 @@ HDSTOREDIR="/tmp/mnt/data/uapps/TravelPal"
 SDSPDCAMDIR="/tmp/mnt/sd_nav/content/speedcam"
 BUSADDRESS="unix:path=/tmp/dbus_service_socket"
 
-leverPosmon() {
-  lposprev=1
-  while true; do
-    lpos=`smdb-read -n vdm_vdt_current_data -e TransmChangeLeverPosition`
-    [ $lpos -ne $lposprev ] && [ $lpos -eq 1 ] && dbus-send --address="${BUSADDRESS}" /com/NNG/Api/Server com.NNG.Api.Server.Audio.VoicePrompt uint64:0 int32:0 string:"Drzwi otwarte."
-    lposprev=$lpos
-    sleep 2
-  done
-}
-
 guidenceChmon() { dbus-monitor --address "${BUSADDRESS}" member='GuidanceChanged' | awk 'NR==21 {NR=7; print "speedlimData#"$2}';}
 navPressedmon() { dbus-monitor --address "${BUSADDRESS}" member='NaviButtonPress' | awk '/NaviButtonPress/ {print "navipressed#1"}';}
 
@@ -97,7 +87,7 @@ speedcamRem() {
 }
 
 speedcamAlmon() {
-  dbus-monitor --address "${BUSADDRESS}" member='VoicePrompt' | awk '/[Rr]adar|[CcKk]amer|[Cc]ámar/ {print "speedcam"}' | while read line
+  dbus-monitor --address "${BUSADDRESS}" member='VoicePrompt' | awk '/[Rr]adar|[CcKk]amer|[Cc]Ã¡mar/ {print "speedcam"}' | while read line
   do
     echo "speedcamData#-1"
     sleep 0.2
@@ -186,7 +176,6 @@ getCurrentData() {
 }
 
 while read action; do break; done
-leverPosmon &
 getCMUlang
 takeaction
 runMonitors
