@@ -6,7 +6,7 @@ BUSADDRESS="unix:path=/tmp/dbus_service_socket"
 guidenceChmon() { dbus-monitor --address "${BUSADDRESS}" member='GuidanceChanged' | awk 'NR==21 {NR=7; print "speedlimData#"$2}';}
 navPressedmon() { dbus-monitor --address "${BUSADDRESS}" member='NaviButtonPress' | awk '/NaviButtonPress/ {print "navipressed#1"}';}
 
-getGRTimeSec() { GRTIMESEC=$(smdb-read -n vdm_vdt_history_data -e GlobalRealTime | awk '{printf "%i\n", $1/10}');}
+getGRTimeSec() { GRTIMESEC=$(smdb-read -n vdm_vdt_history_data -e GlobalRealTime | awk '{printf "%u", $1}' | awk '{printf "%i\n", $1/10}');}
 
 getGPSposition() {
   GPS=$(dbus-send --print-reply --address="${BUSADDRESS}" --dest=com.jci.lds.data /com/jci/lds/data com.jci.lds.data.GetPosition)
@@ -87,7 +87,7 @@ speedcamRem() {
 }
 
 speedcamAlmon() {
-  dbus-monitor --address "${BUSADDRESS}" member='VoicePrompt' | awk '/[Rr]adar|[CcKk]amer|[Cc]ámar/ {print "speedcam"}' | while read line
+  dbus-monitor --address "${BUSADDRESS}" member='VoicePrompt' | awk '/[Rr]adar|[CcKk]amer|[Cc]Ã¡mar/ {print "speedcam"}' | while read line
   do
     echo "speedcamData#-1"
     sleep 0.2
