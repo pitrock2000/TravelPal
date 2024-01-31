@@ -10,8 +10,8 @@ getGRTimeSec() { GRTIMESEC=$(smdb-read -n vdm_vdt_history_data -e GlobalRealTime
 
 getGPSposition() {
   GPS=$(dbus-send --print-reply --address="${BUSADDRESS}" --dest=com.jci.lds.data /com/jci/lds/data com.jci.lds.data.GetPosition)
-  GPSLON=$(echo "$GPS" | awk 'NR==5 {print $2}'); [ -z "$GPSLON" ] && GPSLON=0
-  GPSLAT=$(echo "$GPS" | awk 'NR==4 {print $2}'); [ -z "$GPSLAT" ] && GPSLAT=0
+  GPSLON=$(echo "$GPS" | awk 'NR==5 {printf "%.4f\n", $2}'); [ -z "$GPSLON" ] && GPSLON=0
+  GPSLAT=$(echo "$GPS" | awk 'NR==4 {printf "%.4f\n", $2}'); [ -z "$GPSLAT" ] && GPSLAT=0
 }
 
 getCMUlang() {
@@ -33,7 +33,7 @@ setNAVIparams() {
   else
     NAVISTATUS=0 #no navi card
   fi
-    SPDCAMFILE="${HDSTOREDIR}/speedcam.txt"
+  SPDCAMFILE="${HDSTOREDIR}/speedcam.txt"
 }
 
 runMonitors() {
@@ -49,7 +49,8 @@ runMonitors() {
     guidenceChmon &
     navPressedmon &
     speedcamAlmon &
-  else
+  fi
+  if [ $NAVISTATUS -lt 2 ]; then
     speedcamSearch &
   fi
 }
@@ -109,7 +110,7 @@ speedcamAlmon() {
 }
 
 speedcamSearch() {
-  while [ $NAVISTATUS -eq 0 ]; do
+  while [ $NAVISTATUS -lt 2 ]; do
     getGPSposition
     if [ $GPSLON != 0 ] || [ $GPSLAT != 0 ]; then
       heading=$(echo "$GPS" | awk 'NR==7 {if ('$NAVISTATUS' != 0) $2=$2-180; print $2}')
@@ -125,7 +126,7 @@ speedcamSearch() {
         appr="true"
         while [ $appr ]; do
           [ $gpsSpeed -gt 5 ] && echo "speedcamData#$rspdlim#$rdist"
-          [ $gpsSpeed -gt 20 ] && [ $NAVISTATUS -eq 0 ] && dbus-send --address="${BUSADDRESS}" /com/NNG/Api/Server com.NNG.Api.Server.Audio.VoicePrompt uint64:0 int32:0 string:"Radar"
+          [ $gpsSpeed -gt 20 ] && [ $NAVISTATUS -lt 2 ] && dbus-send --address="${BUSADDRESS}" /com/NNG/Api/Server com.NNG.Api.Server.Audio.VoicePrompt uint64:0 int32:0 string:"Ra-dar."
           sleept=$(echo $gpsSpeed | awk '{t=18-$1/10; if (t<10) {t=10}; printf "%.f\n", t}')
           sleep $sleept
           appr=""
@@ -136,8 +137,8 @@ speedcamSearch() {
           rdist=$(echo $appr | awk '{rd=int($1/50); printf "%.f\n", rd*50}')
         done
       done
-      sleep 15
     fi
+    sleep 15
   done
 }
 
